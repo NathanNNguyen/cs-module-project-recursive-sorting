@@ -14,12 +14,14 @@ def binary_search(arr, target, start, end):
         # to shrink our search space
         else:
             # checking the left
-            if target < arr[middle_i]:
-                end = middle_i - 1
+            if arr[middle_i] > target:
+                # end = middle_i - 1
+                return binary_search(arr, target, start, middle_i - 1)
 
             # checking the right
             else:
                 start = middle_i + 1
+                return binary_search(arr, target, middle_i + 1, end)
 
     return -1
 
